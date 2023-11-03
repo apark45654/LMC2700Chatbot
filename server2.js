@@ -13,6 +13,8 @@ app.use(cors());
 const OPENAI_API_ENDPOINT = 'https://api.openai.com/v1/chat/completions';
 const OPENAI_API_KEY = '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';
 
+
+//takes in user input
 const getOpenAIResponse = async (userInput) => {
     try {
         const response = await axios.post(OPENAI_API_ENDPOINT, {

@@ -1,54 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lu's Chatbot</title>
-</head>
+@font-face {
+    font-family: "Trebuchet MS";
+    src: url("Font/TrebuchetMS.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
 
-<body>
-    <div>
-        <h1>Lu's Chatbot</h1>
-    </div>
-    <div id = "dialogue box">
+@font-face {
+    font-family: "Helvetica";
+    src: url("Font/Helvetica.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
 
-    </div>
+body {
+    background-color: pink;
+    font-family: 'Helvetica', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
 
-    <div>
-        <textarea id = "userInput" placeholder = "Ask me something..."></textarea>
-        <button onclick="sendMessage()">Send</button>
-    </div>
-    <div id = "botResponse"></div>
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
 
+.title {
+    color: rgb(186, 49, 72);
+    font-size: 40px;
+    font-family: 'Trebuchet MS', sans-serif;
+    margin-bottom: 20px; /* Add margin to create space between title and text box */
+}
 
+#userInput {
+    border: 2px solid pink;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 16px;
+    color: white; /* Set text color to white */
+    width: 100%; /* Ensure the text box spans the width of its container */
+}
 
-    <script>
-        // let messageArr = []
-        // let responseArr = [];
+.send-button {
+    background-color: pink;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        async function sendMessage() {
-            let dialogue = document.getElementById('dialogue box');
-            const message = document.getElementById('userInput').value;
-            dialogue.innerHTML = dialogue.innerHTML + message + "</br>";
-            document.getElementById('userInput').value = "";
-            const response = await fetch('/chat', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ message: message })
-            });
-            const data = await response.json();
-
-            // messageArr.push(message);
-            // responseArr.push(response);
-            // let targetId = document.getElementById("dialogue box");
-            // var div = document.createElement("div");
-            // targetId.appendChild(div);
-            // div.id = 'eachresponse';
-            dialogue.innerHTML = dialogue.innerHTML + data.message + "</br>";
-
-        }
-    </script>
-</body>
-</html>
+.send-button:hover {
+    background-color: #ff69b4; /* Barbie pink */
+}

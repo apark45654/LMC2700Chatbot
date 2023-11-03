@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lu's Chatbot</title>
+</head>
+
+<body>
+    <div>
+        <h1>Lu's Chatbot</h1>
+    </div>
+    <div id = "dialogue box">
+
+    </div>
+
+    <div>
+        <textarea id = "userInput" placeholder = "Ask me something..."></textarea>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <div id = "botResponse"></div>
+
+
+
+    <script>
+        // let messageArr = []
+        // let responseArr = [];
+
+        async function sendMessage() {
+            let dialogue = document.getElementById('dialogue box');
+            const message = document.getElementById('userInput').value;
+            dialogue.innerHTML = dialogue.innerHTML + message + "</br>";
+            document.getElementById('userInput').value = "";
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: message })
+            });
+            const data = await response.json();
+
+            // messageArr.push(message);
+            // responseArr.push(response);
+            // let targetId = document.getElementById("dialogue box");
+            // var div = document.createElement("div");
+            // targetId.appendChild(div);
+            // div.id = 'eachresponse';
+            dialogue.innerHTML = dialogue.innerHTML + data.message + "</br>";
+
+        }
+    </script>
+</body>
+</html>

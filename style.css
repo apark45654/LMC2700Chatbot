@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "PixelifySans";
+    src: url("Font/PixelifySans.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1{
+    color: rgb(49, 49, 49);
+    font-size: 40px;
+    font-family: "PixelifySans";
+    float: left;
+}

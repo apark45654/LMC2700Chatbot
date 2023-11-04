@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "Trebuchet MS";
+    src: url("Font/TrebuchetMS.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("Font/Helvetica.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: pink;
+    font-family: 'Helvetica', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+    color: rgb(186, 49, 72);
+    font-size: 40px;
+    font-family: 'Trebuchet MS', sans-serif;
+    margin-bottom: 20px; /* Add margin to create space between title and text box */
+}
+
+#userInput {
+    border: 2px solid pink;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 16px;
+    color: black; 
+    width: 100%; /* Ensure the text box spans the width of its container */
+}
+
+.send-button {
+    background-color: pink;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.send-button:hover {
+    background-color: #ff69b4; /* Barbie pink */
+}
